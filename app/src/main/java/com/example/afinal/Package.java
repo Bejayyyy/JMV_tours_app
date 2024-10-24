@@ -26,6 +26,9 @@ import com.example.afinal.Constructor.PackageAdapter; // Import your PackageAdap
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Package extends AppCompatActivity {
     ImageView package_profile_icon;
     LinearLayout packageCarsbtn;
@@ -40,7 +43,7 @@ public class Package extends AppCompatActivity {
     Button btnBookNowCebutour;
     TextView displayName;
     RecyclerView for_item_package;
-
+    private List<com.example.afinal.Constructor.Package> packageList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,10 @@ public class Package extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("userEmail");
+
 
         // Initialize UI components
         package_profile_icon = findViewById(R.id.pckageuserbtn);
@@ -68,15 +75,15 @@ public class Package extends AppCompatActivity {
         displayName = findViewById(R.id.displayName);
         for_item_package = findViewById(R.id.for_item_package);
 
+        List<com.example.afinal.Constructor.Package> packageList = new ArrayList<>(); // Populate this list with actual packages
+
         // Set the RecyclerView layout manager
         for_item_package.setLayoutManager(new LinearLayoutManager(this));
 
         // Create and set the adapter for the RecyclerView
-        PackageAdapter packageAdapter = new PackageAdapter(this);
+        PackageAdapter packageAdapter = new PackageAdapter(this, packageList,email);
         for_item_package.setAdapter(packageAdapter);
 
-        Intent intent = getIntent();
-        String email = intent.getStringExtra("userEmail");
 
         // Fetch user profile data
         fetchUserProfile(email);

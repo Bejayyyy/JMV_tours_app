@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -24,6 +26,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.afinal.Constructor.BookingAdapter;
 import com.example.afinal.Constructor.BookingResponse;
+import com.example.afinal.Constructor.User;
+import com.example.afinal.Home;
 import com.example.afinal.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +46,8 @@ public class Canceled extends AppCompatActivity {
     private String userEmail;
     private Spinner sortOrderSpinner;
     TextView tabPending2,upcoming2,tabHistory2;
+    ImageButton cartuserbtn, carthomebtn;
+    ImageView upcomingbackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +75,35 @@ public class Canceled extends AppCompatActivity {
         tabPending2 = findViewById(R.id.tabPending2);
         upcoming2 = findViewById(R.id.upcoming2);
         tabHistory2 = findViewById(R.id.tabHistory2);
+        cartuserbtn = findViewById(R.id.cartuserbtn);
+        carthomebtn = findViewById(R.id.carthomebtn);
+        upcomingbackButton = findViewById(R.id.upcomingbackButton);
 
+        upcomingbackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(Canceled.this, Home.class);
+                userIntent.putExtra("userEmail", userEmail);
+                startActivity(userIntent);
+            }
+        });
+
+        carthomebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(Canceled.this, Home.class);
+                userIntent.putExtra("userEmail", userEmail);
+                startActivity(userIntent);
+            }
+        });
+        cartuserbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent userIntent = new Intent(Canceled.this, User.class);
+                userIntent.putExtra("userEmail", userEmail);
+                startActivity(userIntent);
+            }
+        });
         tabHistory2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,12 +1,15 @@
 package com.example.afinal.Constructor;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.bumptech.glide.Glide; // Example image loading library
+import com.bumptech.glide.Glide;
+import com.example.afinal.Fragment.PackageDetailsFragment;
 import com.example.afinal.R;
 import com.example.afinal.VolleySingleton;
 
@@ -22,15 +26,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageViewHolder> {
 
     private Context context;
-    private ArrayList<Package> packageList;
+    private List<Package> packageList; // Change to List<Package>
+    private String userEmail;
 
-    public PackageAdapter(Context context) {
+    // Updated constructor to accept a list of packages
+    public PackageAdapter(Context context, List<Package> packageList,String email) {
         this.context = context;
-        this.packageList = new ArrayList<>();
+        this.packageList = packageList;
+        this.userEmail = email; // Assign the email
         fetchPackages(); // Fetch packages on initialization
     }
 
@@ -48,9 +57,21 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
         holder.packagePrice.setText(String.format("₱%.2f", pkg.getPrice()));
         holder.packageDescription.setText(pkg.getDescription());
 
-        // Load the main image using an image loading library like Glide or Picasso
+        // Load the main image using Glide
         Glide.with(context).load(pkg.getMainImage()).into(holder.packageImage);
 
+        // Set an OnClickListener on the itemView
+        holder.itemView.setOnClickListener(v -> {
+            // Create an instance of the PackageDetailsFragment
+            PackageDetailsFragment detailsFragment = PackageDetailsFragment.newInstance(pkg, userEmail);
+
+            // Use the FragmentManager to navigate to the details fragment
+            ((AppCompatActivity) context).getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, detailsFragment) // Ensure this ID matches your layout's container ID
+                    .addToBackStack(null) // Optional: allows back navigation
+                    .commit();
+        });
     }
 
     @Override
@@ -59,7 +80,7 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
     }
 
     private void fetchPackages() {
-        String url = "https://honeydew-albatross-910973.hostingersite.com/api/fetch_package.php"; // Replace with your API endpoint
+        String url = "https://honeydew-albatross-910973.hostingersite.com/api/fetch_package.php"; // Your API endpoint
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -74,9 +95,20 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
                                 double price = packageObject.getDouble("price");
                                 String description = packageObject.getString("description");
                                 String mainImage = packageObject.getString("main_image");
+                                String image1 = packageObject.optString("image1", null);
+                                String image2 = packageObject.optString("image2", null);
+                                String image3 = packageObject.optString("image3", null);
+
+                                // Get itinerary and inclusions as comma-separated strings
+                                String itineraryString = packageObject.optString("itinerary", "");
+                                String inclusionsString = packageObject.optString("inclusions", "");
+
+                                // Convert the strings into ArrayLists
+                                ArrayList<String> itineraryList = new ArrayList<>(Arrays.asList(itineraryString.split(",")));
+                                ArrayList<String> inclusionsList = new ArrayList<>(Arrays.asList(inclusionsString.split(",")));
 
                                 // Create a new Package object and add it to the list
-                                Package pkg = new Package(packageId, title, price, description, mainImage, new ArrayList<>()); // Empty array list for now
+                                Package pkg = new Package(packageId, title, price, description, mainImage,  image1, image2, image3,itineraryList, inclusionsList);
                                 packageList.add(pkg);
                             }
                             notifyDataSetChanged(); // Notify the adapter that data has changed
@@ -112,4 +144,6 @@ public class PackageAdapter extends RecyclerView.Adapter<PackageAdapter.PackageV
             package_card = itemView.findViewById(R.id.package_card);
         }
     }
+
+
 }

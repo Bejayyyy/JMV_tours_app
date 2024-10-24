@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText regInputEmail,firstnameInput,lastnameInput,signUpUsernameInput;
+    EditText regInputEmail, firstnameInput, lastnameInput, signUpUsernameInput;
     EditText regInputPassword;
     Button regRegBtn;
     TextView signUpAlreadyHaveAccountText, passwordWarning;
@@ -90,7 +90,7 @@ public class SignUp extends AppCompatActivity {
 
             passwordWarning.setVisibility(View.GONE);  // Hide the warning when validation passes
 
-            if (username.isEmpty() ||firstname.isEmpty() || lastname.isEmpty() ||email.isEmpty() || password.isEmpty()) {
+            if (username.isEmpty() || firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 passwordWarning.setText("Please fill in all fields.");
                 passwordWarning.setVisibility(View.VISIBLE);
                 return;
@@ -106,6 +106,8 @@ public class SignUp extends AppCompatActivity {
                             String message = jsonResponse.getString("message");
 
                             if ("success".equals(status)) {
+                                // Show success toast
+                                Toast.makeText(SignUp.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignUp.this, LogIn.class);
                                 startActivity(intent);
                             } else {

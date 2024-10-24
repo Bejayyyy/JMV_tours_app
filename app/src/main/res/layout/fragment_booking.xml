@@ -288,8 +288,8 @@
                         android:textColor="@android:color/black"
                         android:textSize="18sp" />
 
-                    <TextView
-                        android:id="@+id/packageNameTextView"
+                    <Spinner
+                        android:id="@+id/packageTypeSpinner"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@drawable/roundwhiteborder"

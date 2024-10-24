@@ -48,7 +48,8 @@
         private ImageButton btnBack;
         private String userEmail;
         private LinearLayout mainDetails;
-        EditText etAlternativeName,etAlternativeContact,etAlternativeAddress;
+        EditText etAlternativeName, etAlternativeContact, etAlternativeAddress;
+        private String packageTitle;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,8 @@
             Intent intent = getIntent();
             userEmail = intent.getStringExtra("userEmail");
             bookingEmailInput.setText(userEmail);
+            packageTitle = getIntent().getStringExtra("packageTitle");
+
 
             // Fetch user details and populate form fields
             fetchUserDetails(userEmail);
@@ -162,6 +165,10 @@
             try {
                 JSONArray jsonArray = new JSONArray(response);
                 List<String> packageTypes = new ArrayList<>();
+
+                packageTypes.add(packageTitle);
+
+
                 for (int i = 0; i < jsonArray.length(); i++) {
                     packageTypes.add(jsonArray.getString(i));
                 }
@@ -321,7 +328,7 @@
 
         private void insertBookingDetails() {
             String email = bookingEmailInput.getText().toString();
-            String packageType = packageTypeSpinner.getSelectedItem().toString();
+            String packageType = packageTypeSpinner.getSelectedItem().toString(); // Selected package title
             String carType = carServiceSpinner.getSelectedItem().toString();
             String departureDate = bookingDepartureDateInput.getText().toString();
 
@@ -361,7 +368,7 @@
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<>();
                     params.put("email", email);
-                    params.put("package", packageType);
+                    params.put("package", packageType); // Using selected package title directly
                     params.put("car", carType);
                     params.put("departure_date", departureDate);
 
