@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.BookingFragment"
+    android:background="#F7F7F9">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- CardView for Booking Form -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/cardbackground"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="20dp">
+                <!-- CheckBox for showing alternative details -->
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <ImageButton
+                        android:id="@+id/btnBack"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_margin="16dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="30dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Back"
+                        android:src="@drawable/backiconblue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/bookingFormTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/lexend2"
+                        android:gravity="center"
+                        android:paddingBottom="10dp"
+                        android:text="Booking Form"
+                        android:textColor="@color/primary_text"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/bookingFormDescription"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/primary_text"
+                        android:fontFamily="@font/poppins"
+                        android:paddingBottom="16dp"
+                        android:text="Please fill the required identity and detail booking below"
+                        android:textSize="14sp" />
+                    <CheckBox
+                        android:id="@+id/useAlternativeDetailsCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Use alternative details"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/black"
+                        android:padding="8dp"
+                        android:layout_gravity="end" />
+                    <!-- Alternative details section (Initially hidden) -->
+                    <LinearLayout
+                        android:id="@+id/alternativeDetailsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+
+                        <!-- Alternative Booker Name -->
+                        <TextView
+                            android:id="@+id/tvAlternativeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alternative Booker Name"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <EditText
+                            android:id="@+id/etAlternativeName"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Alternative Booker Name"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Alternative Contact Number -->
+                        <TextView
+                            android:id="@+id/tvAlternativeContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alternative Contact Number"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <EditText
+                            android:id="@+id/etAlternativeContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Alternative Contact Number"
+                            android:inputType="number"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+
+                        <!-- Alternative Address -->
+                        <TextView
+                            android:id="@+id/tvAlternativeAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Alternative Address"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:padding="8dp" />
+
+                        <EditText
+                            android:id="@+id/etAlternativeAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Alternative Address"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+                    <!-- Name -->
+                    <LinearLayout
+                        android:id="@+id/mainDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <!-- Booker Name -->
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Booker Name"
+                            android:fontFamily="@font/lexend2"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Booker Name"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Contact Number -->
+                        <TextView
+                            android:id="@+id/tvContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:text="Contact Number"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingPhoneNumberInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:backgroundTint="#F7F7F9"
+                            android:hint="Enter Contact Number"
+                            android:inputType="number"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:id="@+id/tvAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:fontFamily="@font/lexend2"
+                            android:text="Address"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingAddressInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Address"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                    <!-- Address -->
+
+
+
+                    <!-- Email -->
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:text="Email"
+                        android:fontFamily="@font/lexend2"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/BookingEmailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/roundwhiteborder"
+                        android:hint="Enter Email"
+                        android:padding="12dp"
+                        android:backgroundTint="#F7F7F9"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+
+                    <!-- Package Type (Spinner) -->
+                    <TextView
+                        android:id="@+id/tvPackageType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:fontFamily="@font/lexend2"
+                        android:text="Package Type"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/packageNameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/roundwhiteborder"
+                        android:padding="12dp"
+                        android:backgroundTint="#F7F7F9"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                    <!-- Car/Service (Spinner) -->
+                    <TextView
+                        android:id="@+id/tvCarService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:fontFamily="@font/lexend2"
+                        android:text="Car/Service"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <!-- Departure -->
+                    <Spinner
+                        android:id="@+id/carServiceSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/roundwhiteborder"
+                        android:backgroundTint="#F7F7F9"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tvDeparture"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:padding="8dp"
+                        android:fontFamily="@font/lexend2"
+                        android:text="Departure Date"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/BookingDepartureDateInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/roundwhiteborder"
+                        android:backgroundTint="#F7F7F9"
+                        android:hint="Enter Departure"
+                        android:padding="12dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Bottom Bar -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"
+        android:gravity="end"
+        android:backgroundTint="#17254E"
+        android:background="@drawable/corner5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/bookNowButton"
+            android:layout_width="125dp"
+            android:layout_height="55dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Book Now"
+            android:fontFamily="@font/lexend2"
+            android:textColor="@color/black"
+            android:textSize="15sp">
+
+
+
+        </Button>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JMV Tours</string>
+    <string name="home_button_description">Home button</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="sort_options">
+        <item>Latest to Oldest</item>
+        <item>Oldest to Latest</item>
+    </string-array>
+</resources>

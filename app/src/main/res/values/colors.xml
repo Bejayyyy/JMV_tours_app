@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="orange">#FEAD5F</color>
+    <color name="blue">#18264E</color>
+    <color name="light_background">#F0F0F0</color>    <!-- Light background color -->
+    <color name="primary_text">#333333</color>         <!-- Primary text color -->
+    <color name="hint_text">#AAAAAA</color>            <!-- Hint text color -->
+    <color name="button_color">#6200EE</color>         <!-- Button color -->
+    <color name="stroke_color">#CCCCCC</color>         <!-- Stroke color for shapes -->
+    <color name="red">#FF0000</color>
+    <color name="gray">#808080</color>
+</resources>
+

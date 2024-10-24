@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditBookings">
+
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- CardView for Booking Form -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profileSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:background="@drawable/cardbackground"
+                    android:layout_margin="16dp"
+                    app:cardCornerRadius="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageButton
+                            android:id="@+id/btnBack"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_margin="16dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="30dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Back"
+                            android:src="@drawable/backiconblue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                        <TextView
+                            android:id="@+id/bookingFormTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/lexend2"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:text="Edit Booking Form"
+                            android:textColor="@color/primary_text"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bookingFormDescription"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/primary_text"
+                            android:fontFamily="@font/poppins"
+                            android:paddingBottom="16dp"
+                            android:text="Please fill the required identity and detail booking below"
+                            android:textSize="14sp" />
+
+                        <!-- Name -->
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Booker Name"
+                            android:fontFamily="@font/lexend2"
+                            android:textColor="@color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Booker Name"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Contact Number -->
+                        <TextView
+                            android:id="@+id/tvContact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:text="Contact Number"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingPhoneNumberInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:backgroundTint="#F7F7F9"
+                            android:hint="Enter Contact Number"
+                            android:inputType="number"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Email -->
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:text="Email"
+                            android:fontFamily="@font/lexend2"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingEmailInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Email"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Address -->
+                        <TextView
+                            android:id="@+id/tvAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:fontFamily="@font/lexend2"
+                            android:text="Address"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingAddressInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:hint="Enter Address"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Package Type (Spinner) -->
+                        <TextView
+                            android:id="@+id/tvPackageType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:fontFamily="@font/lexend2"
+                            android:text="Package Type"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Spinner
+                            android:id="@+id/packageTypeSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:padding="12dp"
+                            android:backgroundTint="#F7F7F9"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <!-- Car/Service (Spinner) -->
+                        <TextView
+                            android:id="@+id/tvCarService"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:fontFamily="@font/lexend2"
+                            android:text="Car/Service"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <!-- Departure -->
+                        <Spinner
+                            android:id="@+id/carServiceSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:backgroundTint="#F7F7F9"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/tvDeparture"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:padding="8dp"
+                            android:fontFamily="@font/lexend2"
+                            android:text="Departure Date"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/BookingDepartureDateInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/roundwhiteborder"
+                            android:backgroundTint="#F7F7F9"
+                            android:hint="Enter Departure"
+                            android:padding="12dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <!-- Bottom Bar -->
+        <LinearLayout
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="10dp"
+            android:gravity="end"
+            android:backgroundTint="#17254E"
+            android:background="@drawable/corner5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:text="Save Changes"
+                android:fontFamily="@font/lexend2"
+                android:textColor="@color/black"
+                android:textSize="15sp">
+
+
+
+            </Button>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

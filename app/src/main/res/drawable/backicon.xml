@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Blue circle background -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#fff"/> <!-- Blue color -->
+            <size android:width="30dp" android:height="30dp"/> <!-- Match the size of ImageButton -->
+        </shape>
+    </item>
+
+    <!-- White user icon with properly adjusted inset and tint -->
+    <item
+        android:drawable="@drawable/backarrow"
+        android:gravity="center"
+        android:height="15dp"
+        android:width="15dp"
+        android:tint="@android:color/white">
+
+
+        <inset
+            android:insetLeft="8dp"
+            android:insetRight="8dp"
+            android:insetTop="8dp"
+            android:insetBottom="8dp" />
+    </item>
+
+</layer-list>

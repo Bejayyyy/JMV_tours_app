@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define your custom color -->
+    <color name="customDatePickerColor">#18264E</color> <!-- RGB(24, 38, 78) -->
+
+    <!-- Custom style for DatePicker dialog -->
+    <style name="CustomDatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/customDatePickerColor</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorPrimary">@android:color/black</item> <!-- Change as needed -->
+    </style>
+</resources>
