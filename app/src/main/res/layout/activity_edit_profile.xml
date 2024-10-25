@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#F7F7F9"
     tools:context=".EditProfile">
 
     <FrameLayout
@@ -18,13 +19,13 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="300dp"
         android:contentDescription="Background Image"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/top7"
+        app:srcCompat="@drawable/corner6"
         tools:ignore="MissingConstraints" />
 
 
@@ -75,7 +76,7 @@
         android:id="@+id/editImgProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="90dp"
         android:contentDescription="Profile Image"
         android:scaleType="centerCrop"
         android:src="@drawable/user33"

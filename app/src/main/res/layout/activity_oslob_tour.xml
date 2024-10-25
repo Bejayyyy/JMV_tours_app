@@ -67,16 +67,6 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/oslobtour1" />
 
-                <TextView
-                    android:id="@+id/OLtext1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/orelago"
-                    android:paddingTop="4dp"
-                    android:text="Tumalog Falls"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -102,16 +92,6 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/oslobtour2" />
 
-                <TextView
-                    android:id="@+id/OLtext2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/orelago"
-                    android:paddingTop="4dp"
-                    android:text="Sumilon Island Sandbar"
-                    android:textColor="#000000"
-                    android:textSize="10sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -137,16 +117,6 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/oslobtour3" />
 
-                <TextView
-                    android:id="@+id/OLtext3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/orelago"
-                    android:paddingTop="4dp"
-                    android:text="Oslob Quartel"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -186,13 +156,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Itinerary and Inclusions (Two Columns) -->
+
+
     <LinearLayout
         android:id="@+id/oslobTourItineraryAndInclusions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/OLdescription"
@@ -251,6 +221,7 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
+
 
     <!-- Book Now Button -->
     <Button

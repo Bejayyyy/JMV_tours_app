@@ -61,6 +61,12 @@ public class PackageDetailsFragment extends Fragment {
         ImageView sub_image1 = view.findViewById(R.id.sub_image1);
         ImageView sub_image2 = view.findViewById(R.id.sub_image2);
         ImageView sub_image3 = view.findViewById(R.id.sub_image3);
+        // Set up click listener for back button
+        backButton.setOnClickListener(v -> {
+            // Close the fragment by popping it from the back stack
+            requireActivity().getSupportFragmentManager().popBackStack();
+        });
+
 
         // Set package details
         if (selectedPackage != null) {

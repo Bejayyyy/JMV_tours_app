@@ -74,7 +74,7 @@ public class History extends AppCompatActivity {
         completted2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent userIntent = new Intent(History.this, History.class);
+                Intent userIntent = new Intent( History.this, Canceled.class);
                 userIntent.putExtra("userEmail", userEmail);
                 startActivity(userIntent);
             }

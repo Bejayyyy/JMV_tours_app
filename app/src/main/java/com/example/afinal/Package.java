@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -43,6 +44,7 @@ public class Package extends AppCompatActivity {
     Button btnBookNowCebutour;
     TextView displayName;
     RecyclerView for_item_package;
+    CardView custom_card;
     private List<com.example.afinal.Constructor.Package> packageList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class Package extends AppCompatActivity {
         btnBookNowCebutour = findViewById(R.id.btnBookNowCebutour);
         displayName = findViewById(R.id.displayName);
         for_item_package = findViewById(R.id.for_item_package);
-
+        custom_card = findViewById(R.id.custom_card);
         List<com.example.afinal.Constructor.Package> packageList = new ArrayList<>(); // Populate this list with actual packages
 
         // Set the RecyclerView layout manager
@@ -88,6 +90,14 @@ public class Package extends AppCompatActivity {
         // Fetch user profile data
         fetchUserProfile(email);
 
+        custom_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bookingIntent = new Intent(Package.this, Contact.class);
+                bookingIntent.putExtra("userEmail", email);
+                startActivity(bookingIntent);
+            }
+        });
         // Set up button click listeners
         btnBookNowCebutour.setOnClickListener(view -> {
             Intent bookingIntent = new Intent(Package.this, Booking.class);

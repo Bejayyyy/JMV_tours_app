@@ -67,15 +67,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/cebutour1" />
 
-            <TextView
-                android:id="@+id/CTtext1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/orelago"
-                android:text="10,000 Roses"
-                android:textColor="#000000"
-                android:textSize="12sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -101,16 +92,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ceburour2" />
 
-        <TextView
-            android:id="@+id/CTtext2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/orelago"
-            android:paddingTop="4dp"
-            android:text="Temple of Leah"
-            android:textColor="#000000"
-            android:textSize="12sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 
@@ -136,16 +117,6 @@ android:layout_height="110dp"
 android:scaleType="centerCrop"
 android:src="@drawable/cebutour3" />
 
-<TextView
-    android:id="@+id/CTtext3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:fontFamily="@font/orelago"
-    android:paddingTop="4dp"
-    android:text="Magellan’s Cross"
-    android:textColor="#000000"
-    android:textSize="12sp" />
 </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -160,8 +131,8 @@ android:src="@drawable/cebutour3" />
         android:layout_marginTop="8dp"
         android:layout_gravity="center_horizontal"
         android:text="Cebu Tour"
-        android:textColor="#FEAD5F"
-        android:textSize="20sp"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
         android:fontFamily="@font/orelago"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -202,71 +173,78 @@ android:src="@drawable/cebutour3" />
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <!-- Itinerary and Inclusions -->
-    <LinearLayout
-        android:id="@+id/cebuTourItineraryAndInclusions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CTdescription"
-        android:padding="16dp"
-        android:weightSum="2">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/PackageBookNowButton"
+        app:layout_constraintTop_toBottomOf="@+id/CTdescription">
 
-        <!-- Itinerary -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/cebuTourItineraryAndInclusions"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:weightSum="2">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Itinerary -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Itinerary"
-                android:fontFamily="@font/orelago"
-                android:textColor="#FEAD5F"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/bullet_itinerary"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/orelago"
+                    android:text="Itinerary"
+                    android:textColor="#FEAD5F"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bullet_itinerary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexend2"
+                    android:text="• Magellan's Cross\n• Basilica del Sto. Niño\n• Fort San Pedro\n• Temple of Leah"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Inclusions -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lexend2"
-                android:text="• Magellan's Cross\n• Basilica del Sto. Niño\n• Fort San Pedro\n• Temple of Leah"
-                android:textColor="#000000"
-                android:textSize="12sp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/orelago"
+                    android:text="Inclusions"
+                    android:textColor="#FEAD5F"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bullet_inclusions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexend2"
+                    android:text="• Roundtrip transfers\n• Tour guide\n• Entrance fees\n• Lunch"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Inclusions -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inclusions"
-                android:textColor="#FEAD5F"
-                android:textSize="18sp"
-                android:fontFamily="@font/orelago"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/bullet_inclusions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lexend2"
-                android:text="• Roundtrip transfers\n• Tour guide\n• Entrance fees\n• Lunch"
-                android:textColor="#000000"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </LinearLayout>
 
     <!-- Book Now Button -->
 

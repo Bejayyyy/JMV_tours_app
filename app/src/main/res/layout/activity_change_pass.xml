@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:backgroundTint="#F7F7F9"
+
     tools:context=".ChangePass">
 
     <!-- Back Button -->
